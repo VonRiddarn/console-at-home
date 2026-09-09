@@ -21,8 +21,8 @@ public static partial class Cah
 
 	public static bool ParseYesNo(string prompt, bool clear = false)
 	{
-		string[] yesCol = ["ja", "y", "j", "1"];
-		string[] noCol = ["nej", "n", "0"];
+		string[] yesCol = ["ja", "yes", "y", "j", "1"];
+		string[] noCol = ["nej", "no", "n", "0"];
 
 		while (true)
 		{
