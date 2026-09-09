@@ -8,7 +8,6 @@ public static partial class Cah
 	/// Lock the user into an infinite loop until they provide a parseable string.
 	/// </summary>
 	/// <typeparam name="T">Return and parse type. ie: int</typeparam>
-	/// <returns></returns>
 	public static T? ParseLine<T>(string prompt, bool clear = false) where T : IParsable<T>
 	{
 		while (true)
@@ -34,6 +33,23 @@ public static partial class Cah
 				return true;
 			else if (noCol.Contains(input))
 				return false;
+		}
+	}
+
+	/// <summary>
+	/// Force the user to enter a valid string from an array of strings.
+	/// </summary>
+	/// <returns>The index of the match.</returns>
+	public static int ParseCustom(string prompt, string[] choices, bool clear = false)
+	{
+		while (true)
+		{
+			ClearAndPrompt(prompt, clear);
+			string? input = Console.ReadLine();
+			int index = choices.IndexOf(input, StringComparer.InvariantCultureIgnoreCase);
+
+			if (index != -1)
+				return index;
 		}
 	}
 
