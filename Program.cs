@@ -12,5 +12,9 @@ class Program
 		int age = Cah.ParseLine<int>("Enter age: ");
 
 		Console.WriteLine($"You are {age} years old.");
+
+		bool likesDogs = Cah.ParseYesNo("Do you like dogs (y / n): ");
+
+		Console.WriteLine(likesDogs ? "Nice, me too!!" : "That's a shame, they're cute!");
 	}
 }
