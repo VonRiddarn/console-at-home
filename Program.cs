@@ -20,10 +20,16 @@ class Program
 		int index = Cah.Input.ParseCustom("What's your favorite animal: ", animals);
 		Console.WriteLine($"Cool! I like {animals[index]} too!");
 
-		for (int i = 0; i < animals.Length; i++)
-			Console.WriteLine($"{i + 1}) {animals[i]}");
 
-		string animal = Cah.Input.SelectFromIndex<string>("Choose: ", animals, indexCorrection: -1);
-		Console.WriteLine($"Choice = {animal}.");
+		(string label, Action action)[] buttons =
+		[
+			("Säg hej", () => { Console.WriteLine("Hejsan!!"); }),
+			("Skjut en pistol", () => { Console.WriteLine("PANG"); })
+		];
+
+		for (int i = 0; i < buttons.Length; i++)
+			Console.WriteLine($"{i + 1}) {buttons[i].label}");
+
+		Cah.Input.SelectFromIndex<(string label, Action action)>("Choose: ", buttons, indexCorrection: -1).action();
 	}
 }
