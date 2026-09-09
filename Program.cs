@@ -1,5 +1,5 @@
 ﻿using System;
-using ConsoleAtHome.Input;
+using ConsoleAtHome;
 
 namespace ConsoleAtHome;
 
@@ -19,5 +19,11 @@ class Program
 
 		int index = Cah.ParseCustom("What's your favorite animal: ", animals);
 		Console.WriteLine($"Cool! I like {animals[index]} too!");
+
+		for (int i = 0; i < animals.Length; i++)
+			Console.WriteLine($"{i + 1}) {animals[i]}");
+
+		string animal = Cah.SelectFromIndex<string>("Choose: ", animals, indexCorrection: -1);
+		Console.WriteLine($"Choice = {animal}.");
 	}
 }

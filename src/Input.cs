@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleAtHome.Input;
+namespace ConsoleAtHome;
 
 public static partial class Cah
 {
@@ -50,6 +50,18 @@ public static partial class Cah
 
 			if (index != -1)
 				return index;
+		}
+	}
+
+	public static T SelectFromIndex<T>(string prompt, T[] choices, int indexCorrection = 0, bool clear = false)
+	{
+		while (true)
+		{
+			ClearAndPrompt(prompt, clear);
+			string? input = Console.ReadLine();
+
+			if (int.TryParse(input, out int ix) && (ix + indexCorrection) >= 0 && (ix + indexCorrection) < choices.Length)
+				return choices[ix + indexCorrection];
 		}
 	}
 
