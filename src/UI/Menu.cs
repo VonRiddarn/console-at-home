@@ -27,6 +27,4 @@ class Menu(MenuAction[] actions, int indexOffset = 1)
 
 		return _actions[index].Action;
 	}
-
-
 }
