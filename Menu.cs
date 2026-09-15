@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using ConsoleAtHome.Scenes;
 
 class Menu : IScene
@@ -9,12 +10,21 @@ class Menu : IScene
 
 	public SceneTransition Run()
 	{
+		AccumulativeMenu am = new("= Accumulative menu test ==");
+		string? input = null;
+
 		while (true)
 		{
-			Console.WriteLine("Write exit...");
+			if (input == null)
+				am.Render(suffix: "\nText: ");
+			else
+				am.RenderNextLine($"> {input}", suffix: "\nText: ");
 
-			if ((Console.ReadLine() ?? string.Empty) == "exit")
+			input = Console.ReadLine() ?? string.Empty;
+
+			if (input == "exit")
 				return new SceneTransition.Pop();
+
 		}
 	}
 }
