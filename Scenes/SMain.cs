@@ -10,7 +10,7 @@ class SMain : IScene
 
 	public SceneTransition Run()
 	{
-		AccumulativeMenu am = new("= Accumulative menu test ('exit' to exit) ==");
+		AccumulativeMenu am = new("== Accumulative menu test ('exit' to exit) ==");
 		string? input = null;
 
 		while (true)
