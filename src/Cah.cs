@@ -4,6 +4,6 @@ namespace ConsoleAtHome;
 
 public static partial class Cah
 {
-	static readonly string[] _yesColl = ["ja", "yes", "y", "j", "1"];
-	static readonly string[] _noColl = ["nej", "no", "n", "0"];
+	static readonly string[] _truthies = ["ja", "yes", "y", "j", "true", "t", "1"];
+	static readonly string[] _falsies = ["nej", "no", "n", "false", "f", "0"];
 }

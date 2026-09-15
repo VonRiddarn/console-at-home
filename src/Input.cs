@@ -6,6 +6,7 @@ public static partial class Cah
 {
 	public static class Input
 	{
+
 		/// <summary>
 		/// Lock the user into an infinite loop until they provide a parseable string.
 		/// </summary>
@@ -28,12 +29,13 @@ public static partial class Cah
 				ClearAndPrompt(prompt, clear);
 				string? input = Console.ReadLine()?.ToLower();
 
-				if (_yesColl.Contains(input))
+				if (_truthies.Contains(input))
 					return true;
-				else if (_noColl.Contains(input))
+				else if (_falsies.Contains(input))
 					return false;
 			}
 		}
+
 
 		/// <summary>
 		/// Force the user to enter a valid string from an array of strings.
@@ -67,6 +69,7 @@ public static partial class Cah
 		// ----- ----- -----
 		//		HELPERS
 		// ----- ----- -----
+
 
 		static void ClearAndPrompt(string prompt, bool clear)
 		{
