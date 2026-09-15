@@ -3,43 +3,57 @@ using ConsoleAtHome;
 
 class SMenuTest : IScene
 {
-	public void Enter() { }
+	SceneTransition? _deferredTransition;
+
+	public void Enter()
+	{
+		_deferredTransition = null;
+	}
 
 	public void Exit() { }
 
 	public SceneTransition Run()
 	{
 		Menu menu = new(
-			[new("Do something cool", "COOL"),
-			new("Do something lame", "LAME"),
-			new("Exit", "EXIT")], indexOffset: 1);
+			[new("Do something cool!", HandleCool),
+			new("Do something lame?", HandleLame),
+			new("Exit", HandleExit)], indexOffset: 1);
 
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("===== *: Cool stuff _* =====");
+			Console.WriteLine("===== *: Cool stuff :* =====");
 			Console.WriteLine(menu.GetIndexedActions());
 
-			string? Identifier = menu.GetActionIdentifier(Cah.Input.ParseLine<int>("Val: "));
+			var action = menu.GetAction(Cah.Input.ParseLine<int>("Val: "));
 
-			switch (Identifier)
-			{
-				case "COOL":
-					Console.WriteLine("That's so cool!!");
-					break;
-				case "LAME":
-					Console.WriteLine("That's lame bro...");
-					break;
-				case "EXIT":
-					return new SceneTransition.Pop();
-				default:
-					Console.WriteLine("Not a valid input!");
-					break;
+			if (action != null)
+				action();
+			else
+				Console.WriteLine("Not a valid input!");
 
-			}
+			if (_deferredTransition != null)
+				return _deferredTransition;
 
 			Console.WriteLine("Press any key to continue...");
 			Console.ReadKey();
 		}
+
 	}
+
+	void HandleCool()
+	{
+		Console.WriteLine("Wow, that's so COOL!");
+	}
+
+	void HandleLame()
+	{
+		Console.WriteLine("Ngl, that's kinda lame bro...");
+	}
+
+	void HandleExit()
+	{
+		_deferredTransition = new SceneTransition.Pop();
+	}
+
 }

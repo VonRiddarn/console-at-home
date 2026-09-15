@@ -12,5 +12,7 @@ class Program
 		sm.Initialize(new SMain());
 
 		sm.Initialize(new SMenuTest());
+
+		Console.WriteLine("End of main execution (success).");
 	}
 }
