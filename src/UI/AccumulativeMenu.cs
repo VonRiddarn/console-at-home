@@ -1,6 +1,8 @@
 using System;
 using System.Text;
 
+namespace ConsoleAtHome;
+
 class AccumulativeMenu
 {
 	readonly StringBuilder _sb = new();
