@@ -1,5 +1,6 @@
 ﻿using System;
 using ConsoleAtHome;
+using ConsoleAtHome.Scenes;
 
 namespace ConsoleAtHome;
 
@@ -31,5 +32,8 @@ class Program
 			Console.WriteLine($"{i + 1}) {buttons[i].label}");
 
 		Cah.Input.SelectFromIndex<(string label, Action action)>("Choose: ", buttons, indexCorrection: -1).action();
+
+		Console.Clear();
+		SceneManager sm = new(new Menu());
 	}
 }
