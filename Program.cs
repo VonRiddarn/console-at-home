@@ -1,6 +1,5 @@
 ﻿using System;
 using ConsoleAtHome;
-using ConsoleAtHome.Scenes;
 
 namespace ConsoleAtHome;
 
@@ -10,6 +9,8 @@ class Program
 	{
 		Console.Clear();
 		SceneManager sm = new();
-		sm.Initialize(new Menu());
+		sm.Initialize(new SMain());
+
+		sm.Initialize(new SMenuTest());
 	}
 }

@@ -1,8 +1,8 @@
 using System;
 using System.Text;
-using ConsoleAtHome.Scenes;
+using ConsoleAtHome;
 
-class Menu : IScene
+class SMain : IScene
 {
 	public void Enter() { }
 
@@ -10,7 +10,7 @@ class Menu : IScene
 
 	public SceneTransition Run()
 	{
-		AccumulativeMenu am = new("= Accumulative menu test ==");
+		AccumulativeMenu am = new("= Accumulative menu test ('exit' to exit) ==");
 		string? input = null;
 
 		while (true)
