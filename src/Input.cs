@@ -23,17 +23,14 @@ public static partial class Cah
 
 		public static bool ParseYesNo(string prompt, bool clear = false)
 		{
-			string[] yesCol = ["ja", "yes", "y", "j", "1"];
-			string[] noCol = ["nej", "no", "n", "0"];
-
 			while (true)
 			{
 				ClearAndPrompt(prompt, clear);
 				string? input = Console.ReadLine()?.ToLower();
 
-				if (yesCol.Contains(input))
+				if (_yesColl.Contains(input))
 					return true;
-				else if (noCol.Contains(input))
+				else if (_noColl.Contains(input))
 					return false;
 			}
 		}
