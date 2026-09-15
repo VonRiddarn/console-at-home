@@ -6,7 +6,7 @@ class SceneManager
 {
 	readonly Stack<IScene> _sceneHistory = [];
 
-	public SceneManager(IScene startScene)
+	public void Initialize(IScene startScene)
 	{
 		// First initialize
 		_sceneHistory.Push(startScene);

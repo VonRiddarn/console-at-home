@@ -9,6 +9,7 @@ class Program
 	static void Main()
 	{
 		Console.Clear();
-		SceneManager sm = new(new Menu());
+		SceneManager sm = new();
+		sm.Initialize(new Menu());
 	}
 }
