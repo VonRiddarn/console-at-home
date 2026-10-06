@@ -1,6 +1,6 @@
 namespace ConsoleAtHome;
 
-interface IScene
+public interface IScene
 {
 	public void Enter();
 	public void Exit();

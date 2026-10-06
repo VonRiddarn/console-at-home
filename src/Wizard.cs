@@ -3,7 +3,7 @@ using System.Text;
 
 namespace ConsoleAtHome;
 
-class Wizard
+public class Wizard
 {
 	readonly string? _header = null;
 	readonly StringBuilder _sb = new();

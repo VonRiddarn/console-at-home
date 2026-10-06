@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace ConsoleAtHome;
 
-class SceneManager
+public class SceneManager
 {
 	readonly Stack<IScene> _sceneHistory = [];
 
